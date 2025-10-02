@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsvshp3jqps1x"]
+[gd_scene load_steps=8 format=3 uid="uid://dsvshp3jqps1x"]
 
 [ext_resource type="Script" uid="uid://bn6ddd2l6ivfo" path="res://main_ui/main_ui.gd" id="1_rvqvy"]
 [ext_resource type="PackedScene" uid="uid://bk84fxuel3bx7" path="res://todo_page/todo_page.tscn" id="1_wp6te"]
+[ext_resource type="ButtonGroup" uid="uid://cumi3lkgwlb45" path="res://main_ui/TopNavButtons.tres" id="2_m5yyi"]
+[ext_resource type="PackedScene" uid="uid://b77y8saaan3nr" path="res://shop/shop.tscn" id="4_6kiqu"]
+[ext_resource type="PackedScene" uid="uid://dg1fqpiip2hbg" path="res://character_page/character_page.tscn" id="5_kbq4g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvqvy"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbq4g"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.33466893, 0.6325167, 0.838476, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -19,15 +39,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel"]
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TodoTopNav" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvqvy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kbq4g")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_m5yyi")
+text = "To Do List"
+
+[node name="filler" type="Control" parent="VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopTopNav" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvqvy")
+toggle_mode = true
+button_group = ExtResource("2_m5yyi")
+text = "Shop"
+
+[node name="CharTopNav" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvqvy")
+toggle_mode = true
+button_group = ExtResource("2_m5yyi")
+text = "Characters"
 
 [node name="Panel" type="Panel" parent="VBoxContainer/Panel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 40)
@@ -46,7 +100,29 @@ offset_right = 25.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Coins: "
+theme_override_font_sizes/font_size = 24
+text = "Coins: 0"
 
-[node name="TodoPage" parent="VBoxContainer" instance=ExtResource("1_wp6te")]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+tabs_visible = false
+
+[node name="TodoPage" parent="VBoxContainer/TabContainer" instance=ExtResource("1_wp6te")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Shop" parent="VBoxContainer/TabContainer" instance=ExtResource("4_6kiqu")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="CharacterPage" parent="VBoxContainer/TabContainer" instance=ExtResource("5_kbq4g")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/TodoTopNav" to="." method="_on_todo_top_nav_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/ShopTopNav" to="." method="_on_shop_top_nav_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/CharTopNav" to="." method="_on_char_top_nav_pressed"]

@@ -1,4 +1,8 @@
 extends Panel
+class_name  TodoItem
+
+signal delete_todo
+
 @export var coin_amount = 5
 @onready var name_label := $MarginContainer/Panel/Name
 # Called when the node enters the scene tree for the first time.
@@ -19,3 +23,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 
 func _on_delete_pressed() -> void:
 	queue_free()
+
+
+func _on_edit_pressed() -> void:
+	Global.open_popup.emit({"name": name_label.text, "coins": coin_amount, "todo_item": self})

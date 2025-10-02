@@ -11,9 +11,17 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbdnh"]
 bg_color = Color(0.22245592, 0.7176193, 7.70092e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52rrg"]
 bg_color = Color(0.7607843, 0.25882354, 0.24705882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="TodoItem" type="Panel"]
 custom_minimum_size = Vector2(300, 50)
@@ -74,4 +82,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_52rrg")
 text = "Del"
 
 [connection signal="toggled" from="MarginContainer/Panel/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="MarginContainer/Panel/Edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/Delete" to="." method="_on_delete_pressed"]

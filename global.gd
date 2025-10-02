@@ -1,6 +1,7 @@
 extends Node
 
 signal update_coins
+signal open_popup(data)
 
 var coins := 0:
 	set(value):

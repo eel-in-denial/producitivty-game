@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://b77y8saaan3nr"]
+
+[ext_resource type="Script" uid="uid://bbvhtwjbp4gxx" path="res://shop/shop.gd" id="1_r2p71"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r2p71")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="Control" type="Control" parent="HFlowContainer"]
+layout_mode = 2
+
+[node name="Buy" type="Button" parent="."]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 378.0
+offset_right = 370.0
+offset_bottom = 409.0
+text = "Buy"
+
+[node name="BuyTen" type="Button" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 388.0
+offset_right = 713.0
+offset_bottom = 419.0
+text = "Buy x10"
+
+[connection signal="pressed" from="Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="BuyTen" to="." method="_on_buy_ten_pressed"]
