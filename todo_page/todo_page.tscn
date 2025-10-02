@@ -1,0 +1,203 @@
+[gd_scene load_steps=9 format=3 uid="uid://bk84fxuel3bx7"]
+
+[ext_resource type="Script" uid="uid://pjte1eykteh7" path="res://todo_page/todo_page.gd" id="1_4blo8"]
+[ext_resource type="PackedScene" uid="uid://8e3qtmpquhlq" path="res://todo_page/todo_item/todo_item.tscn" id="1_o3hrf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4blo8"]
+bg_color = Color(0.13565129, 0.13681942, 0.14001712, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg85b"]
+bg_color = Color(0.37857383, 0.6067685, 0.91378814, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54bx3"]
+bg_color = Color(0.8800044, 0.83277726, 0.7613668, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dle"]
+bg_color = Color(0.65123695, 0.5875264, 0.5345508, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.02745098, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3ucr"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 0.3445838, 0.26476106, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfx57"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0.72398645, 0.24497509, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TodoPage" type="Control" node_paths=PackedStringArray("todo_list", "edit_name")]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4blo8")
+todo_list = NodePath("Panel/CenterContainer/VBoxContainer/Panel/ScrollContainer/TodoList")
+edit_name = NodePath("EditPopup/MarginContainer/VBoxContainer/HBoxContainer2/LineEdit")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4blo8")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "To Do List"
+horizontal_alignment = 1
+
+[node name="AddItem" type="Button" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qg85b")
+text = "Add Task"
+
+[node name="Panel" type="Panel" parent="Panel/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 450)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_54bx3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CenterContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TodoList" type="VBoxContainer" parent="Panel/CenterContainer/VBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="TodoItem" parent="Panel/CenterContainer/VBoxContainer/Panel/ScrollContainer/TodoList" instance=ExtResource("1_o3hrf")]
+layout_mode = 2
+
+[node name="EditPopup" type="Panel" parent="."]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.25
+anchor_right = 0.8
+anchor_bottom = 0.85
+theme_override_styles/panel = SubResource("StyleBoxFlat_62dle")
+
+[node name="MarginContainer" type="MarginContainer" parent="EditPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditPopup/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EditPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Edit Task"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="EditPopup/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Task Name:"
+
+[node name="LineEdit" type="LineEdit" parent="EditPopup/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="EditPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Control" type="Control" parent="EditPopup/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="close_edit" type="Button" parent="EditPopup/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3ucr")
+text = "Close"
+
+[node name="save_edit" type="Button" parent="EditPopup/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfx57")
+text = "Save"
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/HBoxContainer/AddItem" to="." method="_on_add_item_pressed"]
+[connection signal="pressed" from="EditPopup/MarginContainer/VBoxContainer/HBoxContainer/close_edit" to="." method="_on_close_edit_pressed"]
+[connection signal="pressed" from="EditPopup/MarginContainer/VBoxContainer/HBoxContainer/save_edit" to="." method="_on_save_edit_pressed"]

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Producitivty Game"
+run/main_scene="uid://dsvshp3jqps1x"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
 
 [editor_plugins]
 
