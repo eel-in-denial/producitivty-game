@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bk84fxuel3bx7" path="res://todo_page/todo_page.tscn" id="1_wp6te"]
 [ext_resource type="ButtonGroup" uid="uid://cumi3lkgwlb45" path="res://main_ui/TopNavButtons.tres" id="2_m5yyi"]
 [ext_resource type="PackedScene" uid="uid://b77y8saaan3nr" path="res://shop/shop.tscn" id="4_6kiqu"]
-[ext_resource type="PackedScene" uid="uid://dg1fqpiip2hbg" path="res://character_page/character_page.tscn" id="5_kbq4g"]
+[ext_resource type="PackedScene" uid="uid://dg1fqpiip2hbg" path="res://character_gallery/character_gallery.tscn" id="5_kbq4g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvqvy"]
 content_margin_left = 16.0
@@ -118,7 +118,7 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="CharacterPage" parent="VBoxContainer/TabContainer" instance=ExtResource("5_kbq4g")]
+[node name="CharacterGallery" parent="VBoxContainer/TabContainer" instance=ExtResource("5_kbq4g")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2

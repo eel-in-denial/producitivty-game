@@ -1,5 +1,9 @@
 extends Control
+
+signal update_characters_owned(data: Array)
+
 var cost := 10
+var unboxing_scene = preload("res://shop/unboxing_scene/unboxing_scene.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,13 +19,26 @@ func _on_buy_pressed() -> void:
 	if Global.coins >= cost:
 		buy()
 
-func buy():
-	Global.coins -= cost
+func buy(amount := 1):
+	var bought_chars_array: Array = []
+	for i in range(amount):
+		Global.coins -= cost
+		var rand_rarity = randf()
+		var character: Dictionary
+		if rand_rarity <= 0.6:
+			character = Global.common_characters.pick_random()
+		elif rand_rarity <= 0.9:
+			character = Global.rare_characters.pick_random()
+		elif rand_rarity <= 0.99:
+			character = Global.epic_characters.pick_random()
+		else:
+			character = Global.legendary_characters.pick_random()
+		bought_chars_array.append(character)
+	update_characters_owned.emit(bought_chars_array)
+	SceneManager.temp_scene_switch(unboxing_scene.instantiate(), {"characters": bought_chars_array})
+	
 
 
 func _on_buy_ten_pressed() -> void:
-	for i in range(10):
-		if Global.coins >= cost:
-			buy()
-		else:
-			break
+	if Global.coins >= cost*10:
+		buy(10)

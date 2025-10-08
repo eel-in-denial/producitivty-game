@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk84fxuel3bx7"]
+[gd_scene load_steps=8 format=3 uid="uid://bk84fxuel3bx7"]
 
 [ext_resource type="Script" uid="uid://pjte1eykteh7" path="res://todo_page/todo_page.gd" id="1_4blo8"]
-[ext_resource type="PackedScene" uid="uid://8e3qtmpquhlq" path="res://todo_page/todo_item/todo_item.tscn" id="1_o3hrf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4blo8"]
 bg_color = Color(0.13565129, 0.13681942, 0.14001712, 1)
@@ -132,9 +131,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 16
-
-[node name="TodoItem" parent="Panel/CenterContainer/VBoxContainer/Panel/ScrollContainer/TodoList" instance=ExtResource("1_o3hrf")]
-layout_mode = 2
 
 [node name="EditPopup" type="Panel" parent="."]
 process_mode = 2

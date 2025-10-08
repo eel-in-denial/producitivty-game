@@ -23,7 +23,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="TodoItem" type="Panel"]
+[node name="TodoItem" type="Panel" node_paths=PackedStringArray("name_label")]
 custom_minimum_size = Vector2(300, 50)
 layout_direction = 2
 anchors_preset = 8
@@ -35,6 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kf1d7")
 script = ExtResource("1_rbdnh")
+name_label = NodePath("MarginContainer/Panel/Name")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

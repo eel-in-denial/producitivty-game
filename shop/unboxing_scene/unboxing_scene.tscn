@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://72jiery378b1"]
+
+[ext_resource type="Texture2D" uid="uid://dbnhieugv68hy" path="res://shop/unboxing_scene/magical.png" id="1_0xxrq"]
+[ext_resource type="Script" uid="uid://cfxccwq47aq4i" path="res://shop/unboxing_scene/unboxing_scene.gd" id="1_vg2ac"]
+
+[node name="UnboxingScene" type="Node2D"]
+script = ExtResource("1_vg2ac")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_0xxrq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -134.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
