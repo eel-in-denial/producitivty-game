@@ -22,9 +22,12 @@ func update_character_gallery(characters: Array):
 	pages[Characters].update_gallery(characters)
 
 func save():
+	print(pages[Characters].characters_owned)
 	var file = FileAccess.open("user://data.json", FileAccess.WRITE)
 	var data_json_string = JSON.stringify({
-		"tasks": pages[Todo].todo_items_data
+		"coins": Global.coins,
+		"tasks": pages[Todo].todo_items_data,
+		"owned_characters": pages[Characters].characters_owned
 	}, "\t")
 	file.store_string(data_json_string)
 	file.close()
@@ -38,10 +41,9 @@ func load_json():
 	if file:
 		var content = file.get_as_text()
 		var result: Dictionary = JSON.parse_string(content)
+		
 		file.close()
 		Global.app_data = result
-		pages[Todo].todo_items_data = result["tasks"]
-		pages[Todo].init_tasks()
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

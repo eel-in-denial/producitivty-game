@@ -13,8 +13,11 @@ var todo_items_data = []
 
 func _ready() -> void:
 	edit_popup.visible = false	
+	Global.app_data_updated.connect(init_tasks)
 
 func init_tasks():
+	if Global.app_data.has("tasks"):
+		todo_items_data = Global.app_data["tasks"]
 	for data in todo_items_data:
 		create_item(data)
 
@@ -43,7 +46,7 @@ func _on_close_edit_pressed() -> void:
 func _on_save_edit_pressed() -> void:
 	curr_editing_data["name"] = edit_name.text
 	if curr_editing_item == null:
-		curr_editing_data["index"] = todo_items_data.size()
+		curr_editing_data["index"] = todo_items_data.size() - 1
 		todo_items_data.append(curr_editing_data)
 		create_item(curr_editing_data)
 	else:
@@ -55,7 +58,11 @@ func create_item(data: Dictionary):
 	todo_item.edit(data)
 	todo_item.open_popup.connect(open_edit_popup)
 	todo_item.delete_todo.connect(delete_item_data)
+	todo_item.todo_toggled.connect(update_item)
 	todo_list.add_child(todo_item)
 
 func delete_item_data(index: int):
 	todo_items_data.pop_at(index)
+
+func update_item(data: Dictionary):
+	todo_items_data[data["index"]] = data

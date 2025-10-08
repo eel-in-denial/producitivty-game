@@ -1,10 +1,15 @@
 extends Node
 
 signal update_coins
+signal app_data_updated
 
-var app_data: Dictionary = {}
+var app_data: Dictionary = {}:
+	set(value):
+		app_data = value
+		update_globals()
+		app_data_updated.emit()
 
-var coins := 500:
+var coins := 0:
 	set(value):
 		coins = value
 		update_coins.emit()
@@ -25,6 +30,6 @@ var legendary_characters: Array[Dictionary] = [
 	{"name": "Godot Icon", "rarity": "legendary", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
 ]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func update_globals():
+	if app_data.has("coins"):
+		coins = app_data["coins"]
