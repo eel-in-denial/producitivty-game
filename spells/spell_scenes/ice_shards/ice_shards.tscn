@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://mve71ey7jrub"]
+
+[ext_resource type="Script" uid="uid://cllvpv6k7b1qp" path="res://spells/spell_scenes/ice_shards/ice_shards.gd" id="1_x774l"]
+[ext_resource type="Texture2D" uid="uid://c64vafw5ry0gb" path="res://icon.svg" id="2_2lumm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uqla"]
+radius = 26.172504
+
+[node name="IceShards" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_x774l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1uqla")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.014361831, 0.631841, 0.99999994, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_2lumm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

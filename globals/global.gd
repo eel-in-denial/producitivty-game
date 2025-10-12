@@ -13,7 +13,10 @@ var coins := 0:
 	set(value):
 		coins = value
 		update_coins.emit()
-		
+
+#dungeon game globals
+var player_position
+
 var common_characters: Array[Dictionary] = [
 	{"name": "Godot Icon", "rarity": "common", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
 ]

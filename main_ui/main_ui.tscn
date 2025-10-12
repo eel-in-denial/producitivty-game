@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsvshp3jqps1x"]
+[gd_scene load_steps=9 format=3 uid="uid://dsvshp3jqps1x"]
 
 [ext_resource type="Script" uid="uid://bn6ddd2l6ivfo" path="res://main_ui/main_ui.gd" id="1_rvqvy"]
 [ext_resource type="PackedScene" uid="uid://bk84fxuel3bx7" path="res://todo_page/todo_page.tscn" id="1_wp6te"]
 [ext_resource type="ButtonGroup" uid="uid://cumi3lkgwlb45" path="res://main_ui/TopNavButtons.tres" id="2_m5yyi"]
 [ext_resource type="PackedScene" uid="uid://b77y8saaan3nr" path="res://shop/shop.tscn" id="4_6kiqu"]
+[ext_resource type="PackedScene" uid="uid://b8juvsdqi4cuk" path="res://dungeon_game/dungeon_ui_page/dungeon_ui.tscn" id="4_vm8jh"]
 [ext_resource type="PackedScene" uid="uid://dg1fqpiip2hbg" path="res://character_gallery/character_gallery.tscn" id="5_kbq4g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvqvy"]
@@ -67,6 +68,14 @@ text = "To Do List"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="GameTopNav" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvqvy")
+toggle_mode = true
+button_group = ExtResource("2_m5yyi")
+text = "Dungeon"
+
 [node name="ShopTopNav" type="Button" parent="VBoxContainer/Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -113,16 +122,22 @@ tabs_visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Shop" parent="VBoxContainer/TabContainer" instance=ExtResource("4_6kiqu")]
+[node name="Dungeon" parent="VBoxContainer/TabContainer" instance=ExtResource("4_vm8jh")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="CharacterGallery" parent="VBoxContainer/TabContainer" instance=ExtResource("5_kbq4g")]
+[node name="Shop" parent="VBoxContainer/TabContainer" instance=ExtResource("4_6kiqu")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
+[node name="CharacterGallery" parent="VBoxContainer/TabContainer" instance=ExtResource("5_kbq4g")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/TodoTopNav" to="." method="_on_todo_top_nav_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/GameTopNav" to="." method="_on_game_top_nav_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/ShopTopNav" to="." method="_on_shop_top_nav_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/HBoxContainer/CharTopNav" to="." method="_on_char_top_nav_pressed"]

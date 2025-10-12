@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://p01ggifotvpr"]
+
+[ext_resource type="Script" uid="uid://clsoettub6peg" path="res://dungeon_game/player/player.gd" id="1_v601j"]
+[ext_resource type="Texture2D" uid="uid://dvsku4hm4dj0" path="res://dungeon_game/Basic 4x.png" id="2_dt44c"]
+[ext_resource type="Texture2D" uid="uid://c64vafw5ry0gb" path="res://icon.svg" id="2_s51ob"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mynf8"]
+radius = 21.0
+height = 68.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+script = ExtResource("1_v601j")
+dash_speed = 900.0
+dash_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mynf8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("2_dt44c")
+hframes = 5
+vframes = 3
+frame = 8
+
+[node name="Pointer" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.096)
+texture = ExtResource("2_s51ob")
+offset = Vector2(500, 0)

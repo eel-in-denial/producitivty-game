@@ -112,7 +112,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qg85b")
 text = "Add Task"
 
 [node name="Panel" type="Panel" parent="Panel/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(900, 450)
+custom_minimum_size = Vector2(1000, 450)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_54bx3")
 

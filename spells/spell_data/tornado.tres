@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://58dxr2h05wpr"]
+
+[ext_resource type="Script" uid="uid://dgk4m3705s4op" path="res://spells/spell_class/spell_data.gd" id="1_2wcqm"]
+[ext_resource type="PackedScene" uid="uid://b2ccbsg015k38" path="res://spells/spell_scenes/tornado/tornado.tscn" id="1_s0phd"]
+
+[resource]
+script = ExtResource("1_2wcqm")
+spell_name = "tornado"
+type = 1
+cooldown = 4.0
+base_damage = 0.5
+scene = ExtResource("1_s0phd")
+range = 200.0
+aoe_radius = 100.0
+tik_timer = 1.0
+metadata/_custom_type_script = "uid://dgk4m3705s4op"

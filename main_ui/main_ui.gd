@@ -2,7 +2,7 @@ extends Control
 @onready var coins_text := $VBoxContainer/Panel/HBoxContainer/Panel/Coins
 @onready var tab_container := $VBoxContainer/TabContainer
 
-enum {Todo, Shop, Characters}
+enum {Todo, Game,  Shop, Characters}
 var pages: Array[Node] = []
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,6 @@ func update_character_gallery(characters: Array):
 	pages[Characters].update_gallery(characters)
 
 func save():
-	print(pages[Characters].characters_owned)
 	var file = FileAccess.open("user://data.json", FileAccess.WRITE)
 	var data_json_string = JSON.stringify({
 		"coins": Global.coins,
@@ -50,6 +49,10 @@ func _notification(what):
 		save()
 		get_tree().quit()
 
+func change_scene():
+	save()
+	queue_free()
+
 func _on_todo_top_nav_pressed() -> void:
 	tab_container.current_tab = Todo
 
@@ -58,3 +61,6 @@ func _on_shop_top_nav_pressed() -> void:
 
 func _on_char_top_nav_pressed() -> void:
 	tab_container.current_tab = Characters
+
+func _on_game_top_nav_pressed() -> void:
+	tab_container.current_tab = Game

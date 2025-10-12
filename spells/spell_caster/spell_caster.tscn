@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://1eb4ndmr25n6"]
+
+[ext_resource type="Script" uid="uid://dw47oracvcd7d" path="res://spells/spell_caster/spell_caster.gd" id="1_a66kr"]
+[ext_resource type="Script" uid="uid://cnw7q38cphke0" path="res://spells/spell_caster/spell_aim.gd" id="2_jetuc"]
+
+[node name="SpellCaster" type="Node2D"]
+script = ExtResource("1_a66kr")
+
+[node name="SpellAim" type="Node2D" parent="."]
+script = ExtResource("2_jetuc")
+
+[node name="AimLine" type="Line2D" parent="SpellAim"]
+default_color = Color(1, 1, 1, 0.6392157)
+
+[node name="RangeLine" type="Line2D" parent="SpellAim"]
+width = 5.0
+default_color = Color(0.6666667, 0.9529412, 1, 0.7882353)

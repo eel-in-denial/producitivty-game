@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://ynm72tywgcjv"]
+
+[ext_resource type="Script" uid="uid://dgk4m3705s4op" path="res://spells/spell_class/spell_data.gd" id="1_63j2n"]
+[ext_resource type="PackedScene" uid="uid://mve71ey7jrub" path="res://spells/spell_scenes/ice_shards/ice_shards.tscn" id="1_wqr86"]
+
+[resource]
+script = ExtResource("1_63j2n")
+spell_name = "ice_shards"
+type = 2
+cooldown = 3.0
+base_damage = 2.0
+speed = 800.0
+scene = ExtResource("1_wqr86")
+spread_num = 4
+spread_angle_deg = 40.0
+metadata/_custom_type_script = "uid://dgk4m3705s4op"

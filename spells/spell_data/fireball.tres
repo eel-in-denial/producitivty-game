@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=3 format=3 uid="uid://mubgg2lkedp4"]
+
+[ext_resource type="PackedScene" uid="uid://dfubqsxsxppxd" path="res://spells/spell_scenes/fireball/fireball.tscn" id="1_iq7da"]
+[ext_resource type="Script" uid="uid://dgk4m3705s4op" path="res://spells/spell_class/spell_data.gd" id="2_iq7da"]
+
+[resource]
+script = ExtResource("2_iq7da")
+spell_name = "fireball"
+cooldown = 2.0
+base_damage = 5.0
+speed = 500.0
+scene = ExtResource("1_iq7da")
+aim_length = 300.0
+metadata/_custom_type_script = "uid://dgk4m3705s4op"

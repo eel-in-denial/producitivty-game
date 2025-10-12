@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3 uid="uid://cx6uqu6e6r4ft"]
+
+[ext_resource type="Script" uid="uid://dgk4m3705s4op" path="res://spells/spell_class/spell_data.gd" id="1_6wyqa"]
+
+[resource]
+script = ExtResource("1_6wyqa")
+spell_name = "rock_shield"
+cooldown = 3.0
+metadata/_custom_type_script = "uid://dgk4m3705s4op"
