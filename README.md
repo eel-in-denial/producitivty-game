@@ -1,5 +1,4 @@
 v0.02
-v0.01
 
 Added a dungeon game, controls are wasd to move, space to dash, q key and left and right mouse button to cast spells.
 
