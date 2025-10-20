@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name Enemy
 var health := 10.0
 var speed := 100
 

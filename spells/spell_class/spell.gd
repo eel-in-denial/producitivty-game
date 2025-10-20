@@ -8,7 +8,7 @@ var velocity
 var tik_timer := 0.0
 var tik_timer_set := 0.0
 
-var enemies_in_body: Array[Enemy] = []
+var enemies_in_body: Array[CharacterBody2D] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -23,7 +23,7 @@ func initialise_spell(spell_data: SpellData, dir := Vector2.ZERO):
 	tik_timer = tik_timer_set
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy and body not in enemies_in_body:
+	if body.is_in_group("enemy") and body not in enemies_in_body:
 		enemies_in_body.append(body)
 	on_body_hit(body)
 
@@ -33,7 +33,7 @@ func _on_body_exited(body: Node2D) -> void:
 	
 func on_body_hit(body: Node2D):
 	print("hit ", body)
-	if body is Enemy:
+	if body.is_in_group("enemy"):
 		body.take_damage(damage)
 		die()
 

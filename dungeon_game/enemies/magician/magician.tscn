@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm6j61ecxf2rb"]
+
+[ext_resource type="Script" uid="uid://cr7g75tefluhs" path="res://dungeon_game/enemies/magician/magician.gd" id="1_ji682"]
+[ext_resource type="Texture2D" uid="uid://dvsku4hm4dj0" path="res://dungeon_game/Basic 4x.png" id="2_5gr38"]
+[ext_resource type="PackedScene" uid="uid://1eb4ndmr25n6" path="res://spells/spell_caster/spell_caster.tscn" id="3_ji682"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4yhrm"]
+radius = 26.0
+
+[node name="Magician" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ji682")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5gr38")
+hframes = 5
+vframes = 3
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4yhrm")
+
+[node name="SpellCaster" parent="." instance=ExtResource("3_ji682")]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, -41)
+polygon = PackedVector2Array(0, -8, -8, 0, 0, 8, 8, 0)

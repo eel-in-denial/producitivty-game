@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 		spell_aim.update_aim()
 
 func aim(spell: SpellData):
+	print("sdiuhf")
 	aiming = true
 	spell_aim.aim(spell)
 
