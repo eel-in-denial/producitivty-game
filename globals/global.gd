@@ -17,20 +17,16 @@ var coins := 0:
 #dungeon game globals
 var player_position
 
-var common_characters: Array[Dictionary] = [
-	{"name": "Godot Icon", "rarity": "common", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
+var mage_apprentices: Array[Dictionary] = [
+	{"idx": 1, "name": "Godot Icon", "rarity": "mage_apprentice", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
 ]
 
-var rare_characters: Array[Dictionary] = [
-	{"name": "Godot Icon", "rarity": "rare", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
+var mages: Array[Dictionary] = [
+	{"idx": 2, "name": "Godot Icon", "rarity": "mage", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
 ]
 
-var epic_characters: Array[Dictionary] = [
-	{"name": "Godot Icon", "rarity": "epic", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
-]
-
-var legendary_characters: Array[Dictionary] = [
-	{"name": "Godot Icon", "rarity": "legendary", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
+var archmages: Array[Dictionary] = [
+	{"idx": 3, "name": "Godot Icon", "rarity": "archmage", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
 ]
 
 func update_globals():

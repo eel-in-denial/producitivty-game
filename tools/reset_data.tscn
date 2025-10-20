@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85we3i3je3f2"]
+
+[ext_resource type="Script" uid="uid://d2nf87f6jmk8m" path="res://tools/reset_data.gd" id="1_yeqhx"]
+
+[node name="ResetData" type="Node2D"]
+script = ExtResource("1_yeqhx")

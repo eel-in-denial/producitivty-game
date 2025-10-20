@@ -8,12 +8,13 @@ var pages: Array[Node] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pages = tab_container.get_children()
-	
 	Global.update_coins.connect(update_coin_value)
 	pages[Shop].update_characters_owned.connect(update_character_gallery)
 	if not FileAccess.file_exists("user://data.json"):
 		save()
 	load_json()
+
+
 
 func update_coin_value():
 	coins_text.text = "Coins: " + str(Global.coins)

@@ -25,14 +25,12 @@ func buy(amount := 1):
 		Global.coins -= cost
 		var rand_rarity = randf()
 		var character: Dictionary
-		if rand_rarity <= 0.6:
-			character = Global.common_characters.pick_random()
-		elif rand_rarity <= 0.9:
-			character = Global.rare_characters.pick_random()
+		if rand_rarity <= 0.9:
+			character = Global.mage_apprentices.pick_random()
 		elif rand_rarity <= 0.99:
-			character = Global.epic_characters.pick_random()
+			character = Global.mages.pick_random()
 		else:
-			character = Global.legendary_characters.pick_random()
+			character = Global.archmages.pick_random()
 		bought_chars_array.append(character)
 	update_characters_owned.emit(bought_chars_array)
 	SceneManager.temp_scene_switch(unboxing_scene.instantiate(), {"characters": bought_chars_array})

@@ -1,12 +1,12 @@
 extends Node2D
-var enemy = preload("res://dungeon_game/enemies/enemy.tscn")
+var enemies = [preload("res://dungeon_game/enemies/enemy.tscn"), preload("res://dungeon_game/enemies/charger/charger.tscn")]
 var spawn_timer_set := 5.0
 var spawn_timer := spawn_timer_set
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Player.dead.connect(end_game)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,6 +36,10 @@ func spawn_enemies(num: int):
 		create_enemy(Vector2(x, y) + Global.player_position)
 
 func create_enemy(pos: Vector2):
-	var new_enemy = enemy.instantiate()
+	
+	var new_enemy = enemies.pick_random().instantiate()
 	add_child(new_enemy)
 	new_enemy.global_position = pos
+
+func end_game():
+	SceneManager.switch_scene(load("res://main_ui/main_ui.tscn").instantiate())

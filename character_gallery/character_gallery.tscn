@@ -39,23 +39,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Common"
-
-[node name="Common" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 5
-
 [node name="Rare2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Rare"
+text = "Mage Apprentices (3 ★)"
 
-[node name="Rare" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="MageApprentices" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
@@ -64,9 +53,9 @@ columns = 5
 [node name="Label3" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Epic"
+text = "Mages (4 ★)"
 
-[node name="Epic" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Mages" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
@@ -75,9 +64,9 @@ columns = 5
 [node name="Label4" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Legendary"
+text = "Archmages (5 ★)"
 
-[node name="Legendary" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Archmages" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8

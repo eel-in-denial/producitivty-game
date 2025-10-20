@@ -30,6 +30,8 @@ var can_dash := true
 
 var knock_back_timer := 0.0
 
+signal dead
+
 func _ready() -> void:
 	health_bar.max_value = health
 	health_bar.value = health
@@ -117,6 +119,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		knock_back((global_position - body.global_position).normalized())
 		health -= 5
 		health_bar.value = health
+		if health <= 0:
+			dead.emit()
 
 func knock_back(direction: Vector2):
 	current_state = State.KnockedBack
