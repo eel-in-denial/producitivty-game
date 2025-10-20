@@ -4,7 +4,7 @@ v0.03
 
 - new enemy that signals its dash
 
--added death to dungeon game
+- added death to dungeon game
 
 - refactoring character data
 
