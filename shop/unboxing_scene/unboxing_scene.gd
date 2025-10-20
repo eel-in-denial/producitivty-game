@@ -2,6 +2,7 @@ extends Node2D
 
 var characters: Array
 @onready var label := $CanvasLayer/Control/Label
+@onready var sprite := $Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	characters = SceneManager.transition_data["characters"]
@@ -16,7 +17,8 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			print(characters)
 			if characters.front():
-				label.text = "'" + characters[0]["name"] + "' has been summoned"
+				label.text = "'" + characters[0].name + "' has been summoned"
+				sprite.texture = characters[0].sprite
 				characters.pop_front()
 			else:
 				SceneManager.return_from_temp()

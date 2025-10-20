@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://cnjaarjk2tvrb"]
+
+[ext_resource type="Script" uid="uid://csar16aer4fxq" path="res://characters/character_data.gd" id="1_uskkn"]
+[ext_resource type="Texture2D" uid="uid://bx8o0obx4web0" path="res://characters/character_card_sprites/godot_icon.svg" id="2_h2j6v"]
+
+[resource]
+script = ExtResource("1_uskkn")
+name = "Godot Apprentice"
+sprite = ExtResource("2_h2j6v")
+metadata/_custom_type_script = "uid://csar16aer4fxq"

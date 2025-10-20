@@ -9,7 +9,6 @@ var pages: Array[Node] = []
 func _ready() -> void:
 	pages = tab_container.get_children()
 	Global.update_coins.connect(update_coin_value)
-	pages[Shop].update_characters_owned.connect(update_character_gallery)
 	if not FileAccess.file_exists("user://data.json"):
 		save()
 	load_json()
@@ -18,9 +17,6 @@ func _ready() -> void:
 
 func update_coin_value():
 	coins_text.text = "Coins: " + str(Global.coins)
-
-func update_character_gallery(characters: Array):
-	pages[Characters].update_gallery(characters)
 
 func save():
 	var file = FileAccess.open("user://data.json", FileAccess.WRITE)

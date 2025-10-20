@@ -17,16 +17,16 @@ var coins := 0:
 #dungeon game globals
 var player_position
 
-var mage_apprentices: Array[Dictionary] = [
-	{"idx": 1, "name": "Godot Icon", "rarity": "mage_apprentice", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
+var mage_apprentices: Array[CharacterData] = [
+	preload("res://characters/character_data/test_apprentice.tres")
 ]
 
-var mages: Array[Dictionary] = [
-	{"idx": 2, "name": "Godot Icon", "rarity": "mage", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
+var mages: Array[CharacterData] = [
+	preload("res://characters/character_data/test_mage.tres")
 ]
 
-var archmages: Array[Dictionary] = [
-	{"idx": 3, "name": "Godot Icon", "rarity": "archmage", "sprite": "res://characters/character_card_sprites/godot_icon.svg"}
+var archmages: Array[CharacterData] = [
+	preload("res://characters/character_data/test_archmage.tres")
 ]
 
 func update_globals():

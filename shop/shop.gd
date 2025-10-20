@@ -1,7 +1,5 @@
 extends Control
 
-signal update_characters_owned(data: Array)
-
 var cost := 10
 var unboxing_scene = preload("res://shop/unboxing_scene/unboxing_scene.tscn")
 
@@ -24,15 +22,15 @@ func buy(amount := 1):
 	for i in range(amount):
 		Global.coins -= cost
 		var rand_rarity = randf()
-		var character: Dictionary
+		var character: CharacterData
 		if rand_rarity <= 0.9:
 			character = Global.mage_apprentices.pick_random()
 		elif rand_rarity <= 0.99:
 			character = Global.mages.pick_random()
 		else:
 			character = Global.archmages.pick_random()
+		character.owned += 1
 		bought_chars_array.append(character)
-	update_characters_owned.emit(bought_chars_array)
 	SceneManager.temp_scene_switch(unboxing_scene.instantiate(), {"characters": bought_chars_array})
 	
 
